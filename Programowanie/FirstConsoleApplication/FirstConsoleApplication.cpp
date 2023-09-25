@@ -12,6 +12,7 @@ int main()
     std::cout << 82; //stała całkowitoliczbowa
     std::cout << '\n';
     std::cout << -2.5; //stała rzeczywista
+    std::cout << "Pierwsza dana " << 254 << " kolejny tekst\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
