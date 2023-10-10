@@ -16,43 +16,41 @@
 //Napisz program który wczyta liczbę od użytkownika i ją wyświetli na konsoli
 void task1()
 {
-    int numberFromUser;
-    std::cout << "Podaj liczbe\n";
-    std::cin >> numberFromUser;
+	int numberFromUser;
+	std::cout << "Podaj liczbe\n";
+	std::cin >> numberFromUser;
 
-    std::cout << "Podales " << numberFromUser << "\n";
+	std::cout << "Podales " << numberFromUser << "\n";
 }
 
 //Program obliczający średnią arytmetyczną dwóch liczb.
 void task2()
 {
-    int firstNumber, secondNumber;
-    std::cout << "Podaj pierwszą liczbę\n";
-    std::cin >> firstNumber;
-    std::cout << "Podaj drugą liczbę\n";
-    std::cin >> secondNumber;
+	int firstNumber, secondNumber;
+	std::cout << "Podaj pierwszą liczbę\n";
+	std::cin >> firstNumber;
+	std::cout << "Podaj drugą liczbę\n";
+	std::cin >> secondNumber;
 
-    int average;
-    average = (firstNumber + secondNumber) / 2;
+	int average;
+	average = (firstNumber + secondNumber) / 2;
 
-    std::cout << "Średnia to: " << average << "\n";
+	std::cout << "Średnia to: " << average << "\n";
 }
 
-
-
-int main() 
+int main()
 {
-    setlocale(LC_CTYPE, "polish");
-    //task1();
-    //task2();
+	setlocale(LC_CTYPE, "polish");
+	//task1();
+	//task2();
 }
 
 /*
-Algotytm - skończony zbiór instrukcji, 
+Algotytm - skończony zbiór instrukcji,
 który rozwiązuje zadany problem.
 Określa też kolejność wynonywanych instrukcji.
 Zapis algorytmu:
-* rysunki 
+* rysunki
 * opis słowny
 * w punktach
 * schemat blokowy
@@ -81,9 +79,9 @@ long double - 12 bajtowa liczba rzeczywista, dokładność 19-20 cyfr po przecin
 Nazwa zmiennej - nazwa obszaru w pamięci, identyfikator
 Warunki niezbędne:
 * dozwolone znaki:
-    - alfabet angielski aA-zZ
-    - cyfry arabskie 0-9
-    - podkreślenie (podłoga) _
+	- alfabet angielski aA-zZ
+	- cyfry arabskie 0-9
+	- podkreślenie (podłoga) _
 * pierwszym znakiem nie może być cyfra
 * unikalny w swoim zakresie widoczności
 * nie może to być słowo kluczowe (zarezerwowane) danego języka
