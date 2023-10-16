@@ -43,6 +43,11 @@ void task2()
 
 	if (rest != 0) // rest == 1
 		std::cout << "Liczba jest nieparzysta\n";
+
+	if (rest == 0)
+		std::cout << "Liczba jest parzysta\n";
+	else
+		std::cout << "Liczba jest nieparzysta\n";
 }
 
 int main()
