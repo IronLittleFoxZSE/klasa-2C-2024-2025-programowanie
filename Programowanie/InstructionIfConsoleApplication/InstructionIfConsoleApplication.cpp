@@ -173,13 +173,13 @@ void task5()
 	std::cin >> year;
 
 	if (day >= 1 && day <= 31
-		&& month >=1 && month <=12
+		&& month >= 1 && month <= 12
 		&& year != 0
 
 		&& ((month == 4 || month == 6 || month == 9 || month == 11) && day != 31)
 
-		&& month == 2 && (day >=28
-						 || day == 29 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ))
+		&& month == 2 && (day >= 28
+			|| day == 29 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0))
 		)
 	{
 		std::cout << "Data " << day << "." << month << "." << year << " jest poprawna\n";
@@ -199,21 +199,20 @@ void task6()
 
 	if (dayOfWeek == 1)
 		std::cout << "Podniedziałek\n";
-	if (dayOfWeek == 2)
+	else if (dayOfWeek == 2)
 		std::cout << "Wtorek\n";
-	if (dayOfWeek == 3)
+	else if (dayOfWeek == 3)
 		std::cout << "Środa\n";
-	if (dayOfWeek == 4)
+	else if (dayOfWeek == 4)
 		std::cout << "Czwartek\n";
-	if (dayOfWeek == 5)
+	else if (dayOfWeek == 5)
 		std::cout << "Piątek\n";
-	if (dayOfWeek == 6)
+	else if (dayOfWeek == 6)
 		std::cout << "Sobota\n";
-	if (dayOfWeek == 7)
+	else if (dayOfWeek == 7)
 		std::cout << "Niedziela\n";
-
-	if (dayOfWeek < 1 || dayOfWeek > 7)
-		std:cout << "Dzień niepoprawny\n";
+	else
+		std::cout << "Dzień niepoprawny\n";
 }
 
 int main()
