@@ -245,41 +245,10 @@ void task6()
 	}
 }
 
-//Napisz program, który ma pobrać od użytkownika liczbę dodatnią. 
-//Zabezpiecz program przed pobieraniem liczb ujemnych.
-void task7()
-{
-	int numberFromUser;
-	std::cout << "Podaj liczbę doodatnią:\n";
-	std::cin >> numberFromUser;
-	if (numberFromUser < 0)
-	{
-		std::cout << "Podaj liczbę doodatnią:\n";
-		std::cin >> numberFromUser;
-		if (numberFromUser < 0)
-		{
-			std::cout << "Podaj liczbę doodatnią:\n";
-			std::cin >> numberFromUser;
-			if (numberFromUser < 0)
-			{
-				std::cout << "Podaj liczbę doodatnią:\n";
-				std::cin >> numberFromUser;
-				if (numberFromUser < 0)
-				{
-					std::cout << "Podaj liczbę doodatnią:\n";
-					std::cin >> numberFromUser;
-					//wklejamy całego If'a
-				}
-			}
-		}
-	}
-
-	std::cout << "Liczba dodatnia pobrana od uzytkownika " << numberFromUser << "\n";
-}
 
 int main()
 {
-	task7();
+	task6();
 
 	//float number = 9;
 	//double root = pow(number, 19) + sqrt(number) + 8;
