@@ -88,6 +88,40 @@ void task3()
 
 }
 
+//Napisz program wyświetlający liczby całkowite z przedziału <1,x>.
+//Gdzie x pdaje użytkownika.
+void task4()
+{
+	//std::cout << "1, 2, 3, 4, 5, 6 \n";
+	unsigned long long upperRange;
+	std::cout << "Podaj górny zakres większy bądź równy 1\n";
+	std::cin >> upperRange;
+
+	/*
+	std::cout << "1, ";
+	if (upperRange > 1)
+	{
+		std::cout << "2, ";
+		if (upperRange > 2)
+		{
+			std::cout << "3, ";
+			if (upperRange > 3)
+			{
+				std::cout << "4, ";
+				//.....
+			}
+		}
+	}
+	*/
+
+	unsigned long long currentNumber = 0;
+	do
+	{
+		currentNumber = currentNumber + 1;
+		std::cout << currentNumber << ", ";
+	} while (upperRange > currentNumber);
+}
+
 int main()
 {
 	task3();
