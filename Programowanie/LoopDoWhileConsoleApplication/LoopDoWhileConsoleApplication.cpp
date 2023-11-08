@@ -117,7 +117,10 @@ void task4()
 	unsigned long long currentNumber = 0;
 	do
 	{
-		currentNumber = currentNumber + 1;
+		//currentNumber = currentNumber + 1;
+		//currentNumber += 1;
+		//currentNumber++;
+		++currentNumber;
 		std::cout << currentNumber << ", ";
 	} while (upperRange > currentNumber);
 }
