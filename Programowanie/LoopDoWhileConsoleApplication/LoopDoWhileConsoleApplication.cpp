@@ -125,6 +125,52 @@ void task4()
 	} while (upperRange > currentNumber);
 }
 
+//Napisz program, który policzy sumę cyfr podanej przez użytkownika liczby.
+void task5()
+{
+	int number;
+	std::cout << "Podaj liczbę\n";
+	std::cin >> number;
+
+	int sum = 0;
+	int rest;
+
+	/*
+	rest = number % 10;
+	sum = sum + rest;
+	number = number / 10;
+	if (number != 0)
+	{
+		rest = number % 10;
+		sum = sum + rest;
+		number = number / 10;
+		if (number != 0)
+		{
+			rest = number % 10;
+			sum = sum + rest;
+			number = number / 10;
+			if (number != 0)
+			{
+				rest = number % 10;
+				sum = sum + rest;
+				number = number / 10;
+				//if (number != 0) ...
+			}
+		}
+	}
+	*/
+
+	do
+	{
+		rest = number % 10;
+		sum = sum + rest;
+		number = number / 10;
+	} while (number != 0);
+
+	std::cout << "Suma " << sum << "\n";
+	//4125
+}
+
 int main()
 {
 	task3();
