@@ -171,8 +171,53 @@ void task5()
 	//4125
 }
 
+//* Poproś użytkownika o podawanie liczb, aż wprowadzi zero. 
+//Oblicz sumę oraz średnią arytmetyczną wprowadzonych liczb.
+void task6()
+{
+	int number;
+	int sum = 0;
+	int numberOfNumbers = 0;
+
+	/*
+	std::cout << "Podaj liczbę:\n";
+	std::cin >> number;
+	sum = sum + number;
+	numberOfNumbers++;
+	if (number != 0)
+	{
+		std::cout << "Podaj liczbę:\n";
+		std::cin >> number;
+		sum = sum + number;
+		numberOfNumbers++;
+		if (number != 0)
+		{
+			std::cout << "Podaj liczbę:\n";
+			std::cin >> number;
+			sum = sum + number;
+			numberOfNumbers++;
+			//if ...
+		}
+	}
+	*/
+
+	do
+	{
+		std::cout << "Podaj liczbę:\n";
+		std::cin >> number;
+		sum = sum + number;
+		//if (number != 0)
+		numberOfNumbers++;
+	} while (number != 0);
+
+	//numberOfNumbers--;
+	std::cout << "Suma liczb wynosi " << sum << "\n";
+	double avg = sum * 1.0 / numberOfNumbers;
+	std::cout << "Średnia " << avg << "\n";
+}
+
 int main()
 {
-	task3();
+	task6();
 
 }
