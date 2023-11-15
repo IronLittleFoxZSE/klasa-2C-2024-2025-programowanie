@@ -216,6 +216,19 @@ void task6()
 	std::cout << "Średnia " << avg << "\n";
 }
 
+//Napisz program, który poprosi użytkownika o wprowadzenie dowolnej liczby całkowitej. 
+//Następnie program powinien obliczyć i wyświetlić liczbę cyfr.
+void task7()
+{
+	int number;
+
+	std::cout << "Podaj liczbę\n";
+	std::cin >> number;
+
+
+}
+
+
 int main()
 {
 	task6();
