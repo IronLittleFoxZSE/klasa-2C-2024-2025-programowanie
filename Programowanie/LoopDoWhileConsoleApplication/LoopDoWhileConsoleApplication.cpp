@@ -221,16 +221,41 @@ void task6()
 void task7()
 {
 	int number;
+	int rest;
 
 	std::cout << "Podaj liczbę\n";
 	std::cin >> number;
 
+	/*
+	rest = number % 10;
+	std::cout << rest << ", ";
+	number = number / 10;
+	if (number != 0)
+	{
+		rest = number % 10;
+		std::cout << rest << ", ";
+		number = number / 10;
+		if (number != 0)
+		{
+			rest = number % 10;
+			std::cout << rest << ", ";
+			number = number / 10;
+			//if ...
+		}
+	}
+	*/
 
+	do
+	{
+		rest = number % 10;
+		std::cout << rest << ", ";
+		number = number / 10;
+	} while (number != 0);
 }
 
 
 int main()
 {
-	task6();
+	task7();
 
 }
