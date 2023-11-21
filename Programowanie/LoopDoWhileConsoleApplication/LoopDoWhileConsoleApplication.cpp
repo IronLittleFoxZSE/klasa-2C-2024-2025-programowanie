@@ -160,12 +160,12 @@ void task5()
 	}
 	*/
 
-	do
-	{
-		rest = number % 10;
-		sum = sum + rest;
-		number = number / 10;
-	} while (number != 0);
+		do
+		{
+			rest = number % 10;
+			sum = sum + rest;
+			number = number / 10;
+		} while (number != 0);
 
 	std::cout << "Suma " << sum << "\n";
 	//4125
