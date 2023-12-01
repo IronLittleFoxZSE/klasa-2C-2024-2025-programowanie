@@ -140,7 +140,7 @@ void task3()
 		tmpNumber = tmpNumber / 10;
 	}
 
-	//liczę 10 do potęgi numberOfDigit - 1
+	//liczę 10 do potęgi (numberOfDigit - 1)
 	int leftDivided = 1;
 	while (numberOfDigit != 1)
 	{
@@ -152,11 +152,27 @@ void task3()
 	int leftNumber = number;
 	int rightNumber = number;
 
+	bool isPalindrome = true;
 	while (leftNumber > 10)
 	{
+		int leftDigit = leftNumber / leftDivided;
+		int rightDigit = rightNumber % rightDivided;
+		if (leftDigit != rightDigit)
+		{
+			isPalindrome = false;
+			break;
+		}
 
+		leftNumber = leftNumber % leftDivided;
+		rightNumber = rightNumber / rightDivided;
+
+		leftDivided = leftDivided / 10;
 	}
 
+	if (isPalindrome /*== true*/)
+		std::cout << "Liczba jest palindromem\n";
+	else
+		std::cout << "Liczba nie jest palindromem\n";
 }
 
 int main()
