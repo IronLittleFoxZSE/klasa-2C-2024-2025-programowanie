@@ -173,6 +173,22 @@ void task3()
 		std::cout << "Liczba jest palindromem\n";
 	else
 		std::cout << "Liczba nie jest palindromem\n";
+
+	//wersja 2
+	int reverseNumber = 0;
+	int tmpNumber = number;
+	do
+	{
+		int rest = tmpNumber % 10;
+		reverseNumber = reverseNumber * 10 + rest;
+		tmpNumber /= 10;
+	} while (tmpNumber != 0);
+
+	if (number == reverseNumber)
+		std::cout << "Liczba jest palindromem\n";
+	else
+		std::cout << "Liczba nie jest palindromem\n";
+
 }
 
 int main()
