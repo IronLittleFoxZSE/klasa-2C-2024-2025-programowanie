@@ -176,7 +176,7 @@ void task3()
 
 	//wersja 2
 	int reverseNumber = 0;
-	int tmpNumber = number;
+	tmpNumber = number;
 	do
 	{
 		int rest = tmpNumber % 10;
@@ -191,7 +191,38 @@ void task3()
 
 }
 
+//Napisz program, który wyświetli "Hello world" tyle razy ile chce użytkownik
+void task4()
+{
+	int howManyTimes;
+	std::cout << "Podaj ile razy wyświetlić\n";
+	std::cin >> howManyTimes;
+
+	int i = 0;
+	while (i != howManyTimes)
+	{
+		std::cout << "Hello world\n";
+		i++;
+	}
+}
+
+//Napisz program, który wuświetli liczby parzyste do podanej przez użytkownika liczby
+void task5()
+{
+	int upperRange;
+	std::cout << "Podaj górną granicę do wyświetlenia\n";
+	std::cin >> upperRange;
+
+	int i = 0;
+	while (i <= upperRange)
+	{
+		std::cout << i << "\n";
+		i += 2;
+	}
+}
+
+
 int main()
 {
-	task2();
+	task4();
 }

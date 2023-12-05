@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoopDoWhileConsoleApplicati
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoopWhileConsoleApplication", "LoopWhileConsoleApplication\LoopWhileConsoleApplication.vcxproj", "{404AC7D7-70FC-4040-AF71-A7502089F7BA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoopForConsoleApplication", "LoopForConsoleApplication\LoopForConsoleApplication.vcxproj", "{A18E0250-0072-4B0A-B6D9-F493D60E593E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -65,6 +67,14 @@ Global
 		{404AC7D7-70FC-4040-AF71-A7502089F7BA}.Release|x64.Build.0 = Release|x64
 		{404AC7D7-70FC-4040-AF71-A7502089F7BA}.Release|x86.ActiveCfg = Release|Win32
 		{404AC7D7-70FC-4040-AF71-A7502089F7BA}.Release|x86.Build.0 = Release|Win32
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Debug|x64.ActiveCfg = Debug|x64
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Debug|x64.Build.0 = Debug|x64
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Debug|x86.ActiveCfg = Debug|Win32
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Debug|x86.Build.0 = Debug|Win32
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Release|x64.ActiveCfg = Release|x64
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Release|x64.Build.0 = Release|x64
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Release|x86.ActiveCfg = Release|Win32
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +85,7 @@ Global
 		{9347B1C0-0049-4A03-90BE-AB5048446826} = {653DF6B4-0FA2-4631-AC94-0836BD2F63A0}
 		{7F651422-672D-406A-8518-1A4A75A5EF79} = {653DF6B4-0FA2-4631-AC94-0836BD2F63A0}
 		{404AC7D7-70FC-4040-AF71-A7502089F7BA} = {653DF6B4-0FA2-4631-AC94-0836BD2F63A0}
+		{A18E0250-0072-4B0A-B6D9-F493D60E593E} = {653DF6B4-0FA2-4631-AC94-0836BD2F63A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CF49382-092A-4027-8546-0283784F7F1B}
