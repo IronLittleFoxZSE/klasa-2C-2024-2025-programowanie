@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 
 /*
-* Program obliczający sumę liczb od 1 do 100
-* Program sprawdzający czy podana liczba jest liczbą doskonałą (czyli taką, której suma dzielników (z wyłączeniem samej siebie) jest równa danej liczbie, np. 6 jest liczbą doskonałą, ponieważ 1 + 2 + 3 = 6).
+*
+*
 * Program wyświetlający na ekranie kwadraty liczb od 1 do 10 (np. 1, 4, 9, 16 itd.)
 * Program obliczający n!.
 * Program wyświetlający na ekranie silnie z liczb od 1 do 10 (np. 1!, 2!, 3!, 4! itd.)
@@ -48,7 +48,83 @@ void task2()
 	}
 }
 
+//Program obliczający sumę liczb od 1 do 100
+void task3()
+{
+	int sum = 0;
+	for (int i = 1; i <= 100; i++)
+	{
+		//std::cout << i << "\n";
+		sum = sum + i;
+	}
+	std::cout << "Suma: " << sum << "\n";
+}
+
+//Program sprawdzający czy podana liczba jest liczbą doskonałą 
+//(czyli taką, której suma dzielników (z wyłączeniem samej siebie) 
+//jest równa danej liczbie, np. 6 jest liczbą doskonałą, ponieważ 1 + 2 + 3 = 6).
+void task4()
+{
+	int number;
+	std::cout << "Podaj liczbę\n";
+	std::cin >> number;
+
+	//wersja 1  złożoność O(number-1)
+	int sum = 1;
+	for (int i = 2; i < number; i++)
+	{
+		if (number % i == 0)
+		{
+			//std::cout << i << "\n";
+			sum += i;
+		}
+	}
+
+	std::cout << "Suma dzielników " << sum << "\n";
+
+	if (number == sum)
+		std::cout << "Liczba jest doskonała\n";
+	else
+		std::cout << "Liczba nie jest doskonała\n";
+
+	//wersja 2 O(number/2)
+	sum = 1;
+	for (int i = 2; i <= number / 2; i++)
+	{
+		if (number % i == 0)
+		{
+			//std::cout << i << "\n";
+			sum += i;
+		}
+	}
+
+	std::cout << "Suma dzielników " << sum << "\n";
+
+	if (number == sum)
+		std::cout << "Liczba jest doskonała\n";
+	else
+		std::cout << "Liczba nie jest doskonała\n";
+
+	//wersja 3 O(number/2)
+	sum = 1;
+	for (int i = 2; i <= number / 2; i++)
+	{
+		if (number % i == 0)
+		{
+			//std::cout << i << "\n";
+			sum += i + number / i;
+		}
+	}
+
+	std::cout << "Suma dzielników " << sum << "\n";
+
+	if (number == sum)
+		std::cout << "Liczba jest doskonała\n";
+	else
+		std::cout << "Liczba nie jest doskonała\n";
+}
+
 int main()
 {
-    
+	task4();
 }
