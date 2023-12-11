@@ -3,13 +3,13 @@
 /*
 *
 *
-* Program wyświetlający na ekranie kwadraty liczb od 1 do 10 (np. 1, 4, 9, 16 itd.)
-* Program obliczający n!.
-* Program wyświetlający na ekranie silnie z liczb od 1 do 10 (np. 1!, 2!, 3!, 4! itd.)
-* Program wyświetlający na ekranie tabliczkę mnożenia od 1 do 9 (np. 1x1=1, 1x2=2, 1x3=3 itd.).
+*
+*
+*
+*
 * Program wyświetlający na ekranie wszystkie liczby podzielne przez 3 z zakresu od 1 do 100
 * Program obliczający sumę kwadratów liczb od 1 do 10
-* Program wyświetlający na ekranie ciąg Fibonacciego do 20 elementu (ciąg Fibonacciego to ciąg gdzie każdy element jest sumą dwóch poprzednich, np. 0, 1, 1, 2, 3, 5, 8, 13 itd.)
+* 
 
 * Program, kóry wyświetli poniższe cztery zwory:
 	****       54321        121212        122333
@@ -124,7 +124,80 @@ void task4()
 		std::cout << "Liczba nie jest doskonała\n";
 }
 
+//Program wyświetlający na ekranie kwadraty liczb od 1 do 10 (np. 1, 4, 9, 16 itd.)
+void task5()
+{
+	for (int i = 1; i < 11; i++)
+	{
+		std::cout << i << "*" << i << "=" << i * i << "\n";
+	}
+}
+
+//Program obliczający n!.
+void task6()
+{
+	int number;
+	std::cout << "Podaj liczbę\n";
+	std::cin >> number;
+
+	long long factorial = 1;
+	for (int i = 2; i <= number; i++)
+	{
+		factorial = factorial * i;
+	}
+
+	std::cout << number << "!=" << factorial << "\n";
+}
+
+//Program wyświetlający na ekranie silnie z liczb od 1 do 10 (np. 1!, 2!, 3!, 4! itd.)
+void task7()
+{
+	int number;
+	std::cout << "Podaj liczbę\n";
+	std::cin >> number;
+
+	long long factorial = 1;
+	for (int i = 1; i <= number; i++)
+	{
+		factorial = factorial * i;
+		std::cout << i << "!=" << factorial << "\n";
+	}
+}
+
+//Program wyświetlający na ekranie tabliczkę mnożenia od 1 do 9 (np. 1x1=1, 1x2=2, 1x3=3 itd.).
+void task8()
+{
+	//0x0	0x1		0x2		0x3	
+	//1x0	1x1		1x2		1x3	
+	//2x0	2x1		2x2		2x3	
+
+	for(int x = 0; x < 10; x++)
+	{
+		for (int y = 0; y < 10; y++)
+		{
+			std::cout << x << "x" << y << "=" << x * y << "\t";
+		}
+		std::cout << "\n";
+	}
+}
+
+//Program wyświetlający na ekranie ciąg Fibonacciego do 20 elementu (ciąg Fibonacciego to ciąg gdzie każdy element jest sumą dwóch poprzednich, np. 0, 1, 1, 2, 3, 5, 8, 13 itd.)
+void task9()
+{
+	int f2 = 0;
+	int f1 = 1;
+	std::cout << f2 << ", " << f1 << ", ";
+	for (int i = 2; i < 20; i++)
+	{
+		int f = f1 + f2;
+		std::cout << f << ", ";
+		f2 = f1;
+		f1 = f;
+	}
+}
+
+
 int main()
 {
-	task4();
+	task9();
 }
