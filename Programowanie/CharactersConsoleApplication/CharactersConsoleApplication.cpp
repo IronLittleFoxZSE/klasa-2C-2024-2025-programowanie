@@ -24,7 +24,6 @@ void task2()
     else
         std::cout << "Nie jest to mała litera alfabetu\n";
 
-
     /*char x = 'a';
     std::cout << x;
     x = 'g' + 1;
