@@ -9,7 +9,7 @@
 *
 * Program wyświetlający na ekranie wszystkie liczby podzielne przez 3 z zakresu od 1 do 100
 * Program obliczający sumę kwadratów liczb od 1 do 10
-* 
+*
 
 * Program, kóry wyświetli poniższe cztery zwory:
 	****       54321        121212        122333
@@ -171,7 +171,7 @@ void task8()
 	//1x0	1x1		1x2		1x3	
 	//2x0	2x1		2x2		2x3	
 
-	for(int x = 0; x < 10; x++)
+	for (int x = 0; x < 10; x++)
 	{
 		for (int y = 0; y < 10; y++)
 		{
@@ -196,8 +196,36 @@ void task9()
 	}
 }
 
+//* Program, kóry wyświetli poniższe cztery zwory:
+// 
+//****		54321        121212        122333
+//***		65432        212121        223334444
+//**		76543        121212        333444455555
+//*			87654        212121        444455555666666
+void task10()
+{
+	const int NUMBER_OF_LINES = 4;
+
+	//wzór 1
+	for (int lineNumber = 0; lineNumber < NUMBER_OF_LINES; lineNumber++)
+	{
+		for (int i = 0; i < NUMBER_OF_LINES - lineNumber; i++)
+			std::cout << "*";
+
+		std::cout << "\n";
+	}
+
+	//wzór 2
+	for (int lineNumber = 0; lineNumber < NUMBER_OF_LINES; lineNumber++)
+	{
+		for (int i = 5; i > 0; i--)
+			std::cout << i + lineNumber;
+
+		std::cout << "\n";
+	}
+}
 
 int main()
 {
-	task9();
+	task10();
 }
