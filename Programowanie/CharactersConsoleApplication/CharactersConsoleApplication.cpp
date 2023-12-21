@@ -4,7 +4,7 @@
 * Napisz program, który będzie prosił o hasło. Nie przepuści dalej dopóki nie zostanie ono podane prawidłowo.
 * Napisz program, który pobiera od użytkownika ciąg znaków i wyświetla liczbę samogłosek i spółgłosek w tym ciągu.
 * Poproś użytkownika o wprowadzenie liczby całkowitej w systemie dziesiętnym. Następnie skonwertuj tę liczbę na system dwójkowy (binarny) i wyświetl wynik.
-* Program sprawdzający czy podany ciąg znaków jest palindromem (czyli takim, który czytany od tyłu jest taki sam, jak czytany od przodu, np. "kajak")
+* 
 * Program sprawdzający czy podane dwa słowa są anagramami (czyli takimi, które zawierają te same litery, ale w innym układzie, np. "klasa" i "salka")
 * Program wyciągający informacje z numeru PESEL
 * Program implementujący algorytm szyfrowania Cezara (proste szyfrowanie, w którym każdy znak w tekście jest zastępowany innym znakiem, przesuniętym o stałą liczbę pozycji w alfabecie).
@@ -94,10 +94,30 @@ void task5()
     std::cout << "Małych liter 'a' jest " << numberOfCharacters << "\n";
 }
 
+//Program sprawdzający czy podany ciąg znaków jest palindromem (czyli takim, który czytany od tyłu jest taki sam, jak czytany od przodu, np. "kajak")
+void task6()
+{
+    std::string textFromUser;
+    std::cout << "Podaj tekst\n";
+    std::cin >> textFromUser;
+
+    //wersja 1
+    std::string reverseText = "";
+    for (int i = textFromUser.length() - 1; i >= 0; i--)
+    {
+        reverseText = reverseText + textFromUser[i];
+    }
+    
+    if (textFromUser == reverseText)
+        std::cout << "Ten tekst jest palindromem\n";
+    else
+        std::cout << "Ten tekst nie jest palindromem\n";
+}
+
 int main()
 {
     setlocale(LC_CTYPE, "polish");
-    task5();
+    task6();
 }
 
 /*
