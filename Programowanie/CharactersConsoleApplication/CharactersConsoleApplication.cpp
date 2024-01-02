@@ -107,6 +107,11 @@ void task6()
     {
         reverseText = reverseText + textFromUser[i];
     }
+
+    /*for (int i = 0; i < textFromUser.length(); i++)
+    {
+        reverseText = textFromUser[i] + reverseText;
+    }*/
     
     if (textFromUser == reverseText)
         std::cout << "Ten tekst jest palindromem\n";
