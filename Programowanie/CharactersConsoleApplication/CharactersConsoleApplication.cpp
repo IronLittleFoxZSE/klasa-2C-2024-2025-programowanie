@@ -117,6 +117,23 @@ void task6()
         std::cout << "Ten tekst jest palindromem\n";
     else
         std::cout << "Ten tekst nie jest palindromem\n";
+
+    //wersja 2
+    bool isPalindrome = true;
+
+    for (int signFromBegining = 0, signFormEnd = textFromUser.length() - 1; signFromBegining < signFormEnd ; signFromBegining++, signFormEnd--)
+    {
+        if (textFromUser[signFromBegining] != textFromUser[signFormEnd])
+        {
+            isPalindrome = false;
+            break;
+        }
+    }
+
+    if (isPalindrome /*== true*/)
+        std::cout << "Ten tekst jest palindromem\n";
+    else
+        std::cout << "Ten tekst nie jest palindromem\n";
 }
 
 int main()
