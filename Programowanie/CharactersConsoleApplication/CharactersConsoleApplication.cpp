@@ -11,7 +11,7 @@
 
 * Program który na wejściu przyjmie równanie a na wyjściu da równanie w odwrotnej notacji polskiej ONP. Np. na wejściu 2+3*4 na wyjścu da 234*+
 * Program, który na wejściu przyjmie rówanie w ONP a na wyjściu wyświetli wynik rówania.
-* Algorytm szyfrowania AtBash Cipher - algorytm szyfrujący, w którym każda litera jest zamieniana na literę z przeciwnej strony alfabetu (np. A na Z, B na Y itd.)
+* 
 */
 
 //Napisz program który pobierze znak od użytkownika i wyświeli go.
@@ -136,10 +136,47 @@ void task6()
         std::cout << "Ten tekst nie jest palindromem\n";
 }
 
+//Algorytm szyfrowania AtBash Cipher - algorytm szyfrujący, w którym każda litera jest zamieniana na literę z przeciwnej strony alfabetu (np. A na Z, B na Y itd.)
+void task7()
+{
+    std::string textFromUser;
+    std::cout << "Podaj tekst\n";
+    std::cin >> textFromUser;
+
+    for (int i = 0; i < textFromUser.length(); i++)
+    {
+        if (textFromUser[i] >= 'a' && textFromUser[i] <= 'z')
+            textFromUser[i] = 'z' - (textFromUser[i] - 'a');
+
+        if (textFromUser[i] >= 'A' && textFromUser[i] <= 'Z')
+            textFromUser[i] = 'Z' - (textFromUser[i] - 'A');
+
+        if (textFromUser[i] >= '0' && textFromUser[i] <= '9')
+            textFromUser[i] = '9' - (textFromUser[i] - '0');
+    }
+
+    std::cout << "Zaszyfrowany tekst: " << textFromUser << "\n";
+
+    for (int i = 0; i < textFromUser.length(); i++)
+    {
+        if (textFromUser[i] >= 'a' && textFromUser[i] <= 'z')
+            textFromUser[i] = 'a' + ('z' - textFromUser[i]);
+
+        if (textFromUser[i] >= 'A' && textFromUser[i] <= 'Z')
+            textFromUser[i] = 'A' + ('Z' - textFromUser[i]);
+
+        if (textFromUser[i] >= '0' && textFromUser[i] <= '9')
+            textFromUser[i] = '0' + ('9' - textFromUser[i]);
+    }
+
+    std::cout << "Rozszyfrowany tekst: " << textFromUser << "\n";
+
+}
+
 int main()
 {
     setlocale(LC_CTYPE, "polish");
-    task6();
+    task7();
 }
 
 /*
