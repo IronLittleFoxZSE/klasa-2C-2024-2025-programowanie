@@ -43,7 +43,7 @@ void task2()
     const unsigned short LOWER_RANGE = 5;
     const unsigned short UPPER_RANGE = 7;
 
-    const unsigned short ARRAY_SIZE = 30;
+    const unsigned short ARRAY_SIZE = 3;
     int numbers[ARRAY_SIZE];
 
     srand(time(0));
@@ -57,6 +57,14 @@ void task2()
     std::cout << "\n";
     //----------------------------------------------------------------------------
 
+    int sum = 0;
+    for (int i = 0; i < ARRAY_SIZE; i++)
+    {
+        sum = sum + numbers[i];
+    }
+
+    double avg = sum * 1.0 / ARRAY_SIZE;
+    std::cout << "Średnia wynosi: " << avg << "\n";
 }
 
 int main()
