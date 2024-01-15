@@ -279,7 +279,7 @@ void task8()
 }
 
 //Napisz program, który wyświetli największą liczbę ze zbioru trójelementowego.
-void task8()
+void task9()
 {
 	int firstNumber, secondNumber, thirdNumber;
 	std::cout << "Podaj liczbę\n";
@@ -305,7 +305,7 @@ void task8()
 }
 
 //Napisz program, który wyświetli największą liczbę ze zbioru czteroelementowego.
-void task8()
+void task10()
 {
 	int firstNumber, secondNumber, thirdNumber, fourthNumber;
 	std::cout << "Podaj liczbę\n";
