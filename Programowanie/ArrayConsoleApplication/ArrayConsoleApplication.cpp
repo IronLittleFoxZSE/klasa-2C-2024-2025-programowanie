@@ -70,11 +70,26 @@ void task2()
 //Napisz program, który uzupełni tablicę liczbami losowymi a następnie znajdzie minimum oraz maksimum.
 void task3()
 {
-     
+    const unsigned short LOWER_RANGE = 0;
+    const unsigned short UPPER_RANGE = 70;
+
+    const unsigned short ARRAY_SIZE = 5;
+    int numbers[ARRAY_SIZE];
+
+    srand(time(0));
+
+    std::cout << "wylosowane liczby:\n";
+    for (int i = 0; i < ARRAY_SIZE; i++)
+    {
+        numbers[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+        std::cout << numbers[i] << ", ";
+    }
+    std::cout << "\n";
+    //----------------------------------------------------------------------------
 }
 
 int main()
 {
     setlocale(LC_CTYPE, "polish");
-    task2();
+    task3();
 }
