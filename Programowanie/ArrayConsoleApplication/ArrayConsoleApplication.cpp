@@ -70,7 +70,7 @@ void task2()
 //Napisz program, który uzupełni tablicę liczbami losowymi a następnie znajdzie minimum oraz maksimum.
 void task3()
 {
-
+     
 }
 
 int main()
