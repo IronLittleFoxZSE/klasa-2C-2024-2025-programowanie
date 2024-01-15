@@ -67,6 +67,12 @@ void task2()
     std::cout << "Średnia wynosi: " << avg << "\n";
 }
 
+//Napisz program, który uzupełni tablicę liczbami losowymi a następnie znajdzie minimum oraz maksimum.
+void task3()
+{
+
+}
+
 int main()
 {
     setlocale(LC_CTYPE, "polish");
