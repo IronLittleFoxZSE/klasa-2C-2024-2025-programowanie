@@ -109,7 +109,7 @@ void task3()
 //Napisz program, który wyznaczy wszystkie liczby pierwsze od 2 do zadeklarowanego zakresu. Metoda sito Eratostenesa.
 void task4()
 {
-	const long long UPPER_RANGE = 70;
+	const long long UPPER_RANGE = 1000000;
 
 	//wersja 1
 
@@ -125,11 +125,34 @@ void task4()
 			}
 		}
 
-		if (isPrime /*== true*/)
+		if (isPrime)
 			std::cout << numberToCheck << ", ";
 	}
-	std::cout << "Gotowe\n";
+	std::cout << "\n";
 
+	//wersja 2
+	bool sieveOfEratosthenes[UPPER_RANGE + 1];
+
+	for (unsigned long long i = 2; i <= UPPER_RANGE; i++)
+	{
+		sieveOfEratosthenes[i] = true;
+	}
+
+	for (unsigned long long number = 2; number <= UPPER_RANGE; number++)
+	{
+		if (sieveOfEratosthenes[number] /*== true*/)
+		{
+			for (long long numberToCrossOut = number + number; numberToCrossOut <= UPPER_RANGE; numberToCrossOut = numberToCrossOut + number)
+				sieveOfEratosthenes[numberToCrossOut] = false;
+		}
+	}
+
+	for (unsigned long long i = 2; i <= UPPER_RANGE; i++)
+	{
+		if (sieveOfEratosthenes[i] /*== true*/)
+			std::cout << i << ", ";
+	}
+	std::cout << "\n";
 }
 
 int main()
