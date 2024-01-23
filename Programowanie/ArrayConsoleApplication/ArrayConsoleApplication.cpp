@@ -155,8 +155,68 @@ void task4()
 	std::cout << "\n";
 }
 
+//Napisz program, który wczyta numer dnia tygodania w następnie wyświetli nazwę tego dnia lub komunikat błedu.
+void task5()
+{
+	int numberOfWeek = 5;
+	std::cout << "Podaj numer dnia tygodnia\n";
+	std::cin >> numberOfWeek;
+
+	std::string dayNames[] = {"Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"};
+	//dayNames[0] = "Poniedziałek";
+	//dayNames[1] = "Wtorek";
+	//kontynuacja dni
+
+	if (numberOfWeek >= 0 && numberOfWeek <= 6)
+		std::cout << "Ten dzień to " << dayNames[numberOfWeek] << "\n";
+	else
+		std::cout << "Niepoprawny dzień\n";
+}
+
+// Napisz program, który posortuje tablicę liczb sposobem przez wybór.
+void task6()
+{
+	const short LOWER_RANGE = 0;
+	const short UPPER_RANGE = 70;
+
+	const unsigned short ARRAY_SIZE = 10;
+	int numbers[ARRAY_SIZE];
+
+	srand(time(0));
+
+	std::cout << "wylosowane liczby:\n";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		numbers[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+		std::cout << numbers[i] << ", ";
+	}
+	std::cout << "\n";
+	//----------------------------------------------------------------------------
+
+	for (int i = 0; i < ARRAY_SIZE - 1; i++)
+	{
+		int minIndex = i;
+		for (int j = i + 1; j < ARRAY_SIZE; j++)
+		{
+			if (numbers[j] < numbers[minIndex])
+				minIndex = j;
+		}
+
+		int tmp = numbers[minIndex];
+		numbers[minIndex] = numbers[i];
+		numbers[i] = tmp;
+	}
+
+	std::cout << "Posortowane liczby:\n";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		std::cout << numbers[i] << ", ";
+	}
+	std::cout << "\n";
+}
+
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
-	task4();
+	task6();
 }
