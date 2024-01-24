@@ -162,7 +162,7 @@ void task5()
 	std::cout << "Podaj numer dnia tygodnia\n";
 	std::cin >> numberOfWeek;
 
-	std::string dayNames[] = {"Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"};
+	std::string dayNames[] = { "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela" };
 	//dayNames[0] = "Poniedziałek";
 	//dayNames[1] = "Wtorek";
 	//kontynuacja dni
@@ -215,8 +215,91 @@ void task6()
 	std::cout << "\n";
 }
 
+// Napisz program, który posortuje tablicę liczb sposobem przez wstawianie
+void task7()
+{
+	const short LOWER_RANGE = 0;
+	const short UPPER_RANGE = 70;
+
+	const unsigned short ARRAY_SIZE = 10;
+	int numbers[ARRAY_SIZE];
+
+	srand(time(0));
+
+	std::cout << "wylosowane liczby:\n";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		numbers[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+		std::cout << numbers[i] << ", ";
+	}
+	std::cout << "\n";
+	//----------------------------------------------------------------------------
+
+	for (int i = 1; i < ARRAY_SIZE; i++)
+	{
+		int pom = numbers[i];
+
+		int j;
+		for (j = i - 1; j >= 0 && numbers[j] > pom; j--)
+		{
+			numbers[j + 1] = numbers[j];
+		}
+		numbers[j + 1] = pom;
+	}
+
+	std::cout << "Posortowane liczby:\n";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		std::cout << numbers[i] << ", ";
+	}
+	std::cout << "\n";
+}
+
+// Napisz program, który posortuje tablicę liczb sposobem bąbelkowym
+void task8()
+{
+	const short LOWER_RANGE = 0;
+	const short UPPER_RANGE = 70;
+
+	const unsigned short ARRAY_SIZE = 10;
+	int numbers[ARRAY_SIZE];
+
+	srand(time(0));
+
+	std::cout << "wylosowane liczby:\n";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		numbers[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+		std::cout << numbers[i] << ", ";
+	}
+	std::cout << "\n";
+	//----------------------------------------------------------------------------
+
+	for (int i = 0; i < ARRAY_SIZE - 1; i++)
+	{
+		bool wasSwap = false;
+		for (int j = 0; j < ARRAY_SIZE - 1 - i; j++)
+			if (numbers[j] > numbers[j + 1])
+			{
+				int tmp = numbers[j];
+				numbers[j] = numbers[j + 1];
+				numbers[j + 1] = tmp;
+				wasSwap = true;
+			}
+		if (!wasSwap)
+			break;
+	}
+
+	std::cout << "Posortowane liczby:\n";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		std::cout << numbers[i] << ", ";
+	}
+	std::cout << "\n";
+}
+
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
-	task6();
+	task8();
 }
