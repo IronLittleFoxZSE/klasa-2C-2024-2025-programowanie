@@ -1,5 +1,14 @@
 ﻿#include <iostream>
 
+/*
+DRY - don't repeat yourself - nie powtarzaj się
+KISS - Keept it simple, stupid - trzymaj prostotę głupcze
+YAGNI - you aren't gonna need it - nie potrzebujesz tego
+SOLID
+	S - single responsibility - pojedyńcza odpowiedzialność
+*/
+
+
 //Napisz program, który wczyta np. 5 liczb 
 //a następnie wyświetli je w odwrotnej kolejności.
 void task1()
