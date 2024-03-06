@@ -67,6 +67,36 @@ int sumOfNumbers(int fn, int sn)
     return s;
 }
 
+//Napisz funkcję która obliczy wartość silni i ją zwróci.
+long long calculateFactorial(long long n)
+{
+    long long factorial = 1;
+    for (int i = 2; i <= n; i++)
+    {
+        factorial = factorial * i;
+    }
+    return factorial;
+}
+
+long long calculateFactorialV2(long long n)
+{
+    if (n <= 1)
+        return 1;
+    else
+        return n * calculateFactorialV2(n - 1);
+}
+
+void task7()
+{
+    int number;
+    std::cout << "Podaj liczbę:\n";
+    std::cin >> number;
+
+    long long factorial = calculateFactorialV2(number);
+
+    std::cout << "Silnia jest równa " << factorial << "\n";
+}
+
 int main()
 {
     setlocale(LC_CTYPE, "polish");
@@ -102,7 +132,7 @@ int main()
     //task6_GetNumber(numberFromUser);
     //std::cout << "Uzytkownik podał liczbę " << numberFromUser << "\n";
 
-    int numberFromUser = 16;
+    /*int numberFromUser = 16;
 
     double result = sqrt(numberFromUser);
 
@@ -110,6 +140,7 @@ int main()
     firstNumber = 9;
     secondNumber = 1;
     sum = sumOfNumbers(firstNumber, secondNumber);
-    std::cout << sum << "\n";
+    std::cout << sum << "\n";*/
 
+    task7();
 }
