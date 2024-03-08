@@ -39,7 +39,20 @@ void task2()
     ptr = &secondNumber;
     std::cout << "Zawartość drugiej zmiennej \t" << *ptr << "\n";
 
+    ptr = new int;
 
+    std::cout << "Adres nowego obszaru \t\t\t" << ptr << "\n";
+    *ptr = 5;
+    //std::cin >> *ptr;
+    std::cout << "Zawartość w nowym obszarze \t" << *ptr << "\n";
+
+    delete ptr;
+    ptr = NULL;
+
+    /*
+    while (true)
+        new long long;
+    */
 }
 
 
