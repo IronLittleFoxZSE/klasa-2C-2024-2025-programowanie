@@ -127,6 +127,8 @@ Wynik konwersji: 500 centymetrów
 
 */
 
+#pragma region Zadanie 1
+
 void showMenu()
 {
 	system("cls");
@@ -207,6 +209,8 @@ void task1()
 		system("pause");
 	}
 }
+
+#pragma endregion To jest zadanie 1
 
 int main()
 {
