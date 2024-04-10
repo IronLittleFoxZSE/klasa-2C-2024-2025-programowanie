@@ -2,6 +2,15 @@
 #include <windows.h>
 #include <conio.h>
 
+enum keyCode
+{
+	UP,
+	DOWN = 5,
+	LEFT,
+	RIGHT,
+	ESC
+};
+
 void setCursor(int x, int y)
 {
 	COORD c;
@@ -30,6 +39,37 @@ void getConsolResolution(int& consoleWidth, int& consoleHeight)
 	consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
 }
 
+keyCode codeChar(char charToCode)
+{
+	if (charToCode == 'w')
+		return keyCode::UP;
+	if (charToCode == 's')
+		return keyCode::DOWN;
+	if (charToCode == 'a')
+		return keyCode::LEFT;
+	if (charToCode == 'd')
+		return keyCode::RIGHT;
+	if (charToCode == 27)
+		return keyCode::ESC;
+}
+
+keyCode getKeyCode(keyCode prevKeyCode)
+{
+	char currentChar = 0;
+	keyCode currentKeyCode = prevKeyCode;
+	if (_kbhit())
+		currentChar = _getch();
+
+	if (currentChar == 'w'
+		  || currentChar == 's'
+		  || currentChar == 'a'
+		  || currentChar == 'd'
+		  || currentChar == 27)
+		currentKeyCode = codeChar(currentChar);
+
+	return currentKeyCode;
+}
+
 int main()
 {
 	/*std::string password = "";
@@ -49,7 +89,7 @@ int main()
 
     unsigned short x = 0;
 	unsigned short y = 0;
-	char direction = 'd';
+	keyCode currentKeyCode = keyCode::RIGHT;
 	int consoleHeight, consoleWidth;
 
 	getConsolResolution(consoleWidth, consoleHeight);
@@ -65,35 +105,34 @@ int main()
 		setCursor(x, y);
 		std::cout << "X";
 
-		if (_kbhit())
-			direction = _getch();
+		currentKeyCode = getKeyCode(currentKeyCode);
 
 		Sleep(300);
 
 		setCursor(x, y);
 		std::cout << " ";
 
-		switch (direction)
+		switch (currentKeyCode)
 		{
-		case 'w': //góra
+		case keyCode::UP:
 			if (y > 0)
 				y--;
 			else
 				y = consoleHeight;
 			break;
-		case 's': //dół
+		case keyCode::DOWN:
 			if (y < consoleHeight)
 				y++;
 			else
 				y = 0;
 			break;
-		case 'a': //lewo
+		case keyCode::LEFT:
 			if (x > 0)
 				x--;
 			else
 				x = consoleWidth;
 			break;
-		case 'd': //prawo
+		case keyCode::RIGHT:
 			if (x < consoleWidth)
 				x++;
 			else
@@ -103,7 +142,7 @@ int main()
 			break;
 		}
 
-		if (direction == 27)
+		if (currentKeyCode == keyCode::ESC)
 			break;
 	}
 
