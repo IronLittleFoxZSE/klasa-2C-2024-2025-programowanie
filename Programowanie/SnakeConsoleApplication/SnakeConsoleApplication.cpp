@@ -59,8 +59,17 @@ keyCode getKeyCode(keyCode prevKeyCode)
 	keyCode currentKeyCode = prevKeyCode;
 	if (_kbhit())
 		currentChar = _getch();
-
-	if (currentChar == 'w'
+	if (currentChar == 224 || currentChar == 0)
+	{
+		currentChar = _getch();
+		if (currentChar == 72
+			|| currentChar == 80
+			|| currentChar == 75
+			|| currentChar == 77
+			|| currentChar == 27)
+			currentKeyCode = codeChar(currentChar);
+	}
+	else if (currentChar == 'w'
 		  || currentChar == 's'
 		  || currentChar == 'a'
 		  || currentChar == 'd'
@@ -72,6 +81,16 @@ keyCode getKeyCode(keyCode prevKeyCode)
 
 int main()
 {
+	/*unsigned char sign;
+
+	while (true)
+	{
+		sign = _getch();
+		std::cout << (int)sign << "\n";
+	}
+
+	return 0;*/
+
 	/*std::string password = "";
 	char characterFromUser;
 
