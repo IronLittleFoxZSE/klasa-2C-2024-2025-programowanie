@@ -39,7 +39,7 @@ void getConsolResolution(int& consoleWidth, int& consoleHeight)
 	consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
 }
 
-keyCode codeChar(char charToCode)
+keyCode codeChar(unsigned char charToCode)
 {
 	if (charToCode == 'w' || charToCode == 72)
 		return keyCode::UP;
@@ -55,7 +55,7 @@ keyCode codeChar(char charToCode)
 
 keyCode getKeyCode(keyCode prevKeyCode)
 {
-	char currentChar = 0;
+	unsigned char currentChar = 0;
 	keyCode currentKeyCode = prevKeyCode;
 	if (_kbhit())
 	{
