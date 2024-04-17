@@ -5,7 +5,7 @@
 enum keyCode
 {
 	UP,
-	DOWN = 5,
+	DOWN,
 	LEFT,
 	RIGHT,
 	ESC
@@ -41,13 +41,13 @@ void getConsolResolution(int& consoleWidth, int& consoleHeight)
 
 keyCode codeChar(char charToCode)
 {
-	if (charToCode == 'w')
+	if (charToCode == 'w' || charToCode == 72)
 		return keyCode::UP;
-	if (charToCode == 's')
+	if (charToCode == 's' || charToCode == 80)
 		return keyCode::DOWN;
-	if (charToCode == 'a')
+	if (charToCode == 'a' || charToCode == 75)
 		return keyCode::LEFT;
-	if (charToCode == 'd')
+	if (charToCode == 'd' || charToCode == 77)
 		return keyCode::RIGHT;
 	if (charToCode == 27)
 		return keyCode::ESC;
@@ -58,24 +58,25 @@ keyCode getKeyCode(keyCode prevKeyCode)
 	char currentChar = 0;
 	keyCode currentKeyCode = prevKeyCode;
 	if (_kbhit())
-		currentChar = _getch();
-	if (currentChar == 224 || currentChar == 0)
 	{
 		currentChar = _getch();
-		if (currentChar == 72
-			|| currentChar == 80
-			|| currentChar == 75
-			|| currentChar == 77
+		if (currentChar == 224 || currentChar == 0)
+		{
+			currentChar = _getch();
+			if (currentChar == 72
+				|| currentChar == 80
+				|| currentChar == 75
+				|| currentChar == 77
+				|| currentChar == 27)
+				currentKeyCode = codeChar(currentChar);
+		}
+		else if (currentChar == 'w'
+			|| currentChar == 's'
+			|| currentChar == 'a'
+			|| currentChar == 'd'
 			|| currentChar == 27)
 			currentKeyCode = codeChar(currentChar);
 	}
-	else if (currentChar == 'w'
-		  || currentChar == 's'
-		  || currentChar == 'a'
-		  || currentChar == 'd'
-		  || currentChar == 27)
-		currentKeyCode = codeChar(currentChar);
-
 	return currentKeyCode;
 }
 
