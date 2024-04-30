@@ -11,12 +11,28 @@ enum keyCode
 	ESC
 };
 
+struct point
+{
+	unsigned short x;
+	unsigned short y;
+};
+
 void setCursor(int x, int y)
 {
 	COORD c;
 	c.X = x;
 	c.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+}
+
+void setCursor(point &p)
+{
+	/*COORD c;
+	c.X = p.x;
+	c.Y = p.y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);*/
+
+	setCursor(p.x, p.y);
 }
 
 void showConsoleCursor(bool showFlag)
@@ -80,6 +96,46 @@ keyCode getKeyCode(keyCode prevKeyCode)
 	return currentKeyCode;
 }
 
+void setRandomCoordinate(point &p ,int maxX, int maxY)
+{
+	p.x = rand() % maxX;
+	p.y = rand() % maxY;
+}
+
+void fillItemsToCollect(point itemsToCollect[], unsigned int count, int maxX, int maxY)
+{
+	srand(time(NULL));
+	for (int i = 0; i < count; i++)
+	{
+		setRandomCoordinate(itemsToCollect[i], maxX, maxY);
+	}
+}
+
+void printCharacter(point &p, char sign)
+{
+	setCursor(p);
+	std::cout << sign;
+}
+
+void printItemsToCollect(point itemsToCollect[], unsigned int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		printCharacter(itemsToCollect[i], '*');
+	}
+}
+
+int getHitItemCollect(point coordinate, point itemsToCollect[], unsigned int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		if (itemsToCollect[i].x == coordinate.x
+			&& itemsToCollect[i].y == coordinate.y)
+			return i;
+	}
+	return -1;
+}
+
 int main()
 {
 	/*unsigned char sign;
@@ -107,56 +163,70 @@ int main()
 
 	return 0;*/
 
-    unsigned short x = 0;
-	unsigned short y = 0;
+
+	//typ nazwa;
+	point coordinate;
+	//coordinate.x = 0;
+	//coordinate.y = 0;
+
 	keyCode currentKeyCode = keyCode::RIGHT;
 	int consoleHeight, consoleWidth;
+
+	const unsigned int ELEMENT_TO_COLLECT_COUNT = 20;
+	point itemsToCollect[ELEMENT_TO_COLLECT_COUNT];
 
 	getConsolResolution(consoleWidth, consoleHeight);
 
 	showConsoleCursor(false);
 	system("cls");
 
-	setCursor(1, 1);
-	std::cout << "M";
+	fillItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT, consoleWidth, consoleHeight);
+	printItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT);
 
+	setRandomCoordinate(coordinate, consoleWidth, consoleHeight);
 	while (true)
 	{
-		setCursor(x, y);
-		std::cout << "X";
+		printCharacter(coordinate, 'X');
+
+		int hit;
+		if ((hit = getHitItemCollect(coordinate, itemsToCollect, ELEMENT_TO_COLLECT_COUNT)) >= 0)
+		{
+			setRandomCoordinate(itemsToCollect[hit], consoleWidth, consoleHeight);
+
+			printCharacter(itemsToCollect[hit], '*');
+		}
 
 		currentKeyCode = getKeyCode(currentKeyCode);
 
 		Sleep(300);
 
-		setCursor(x, y);
-		std::cout << " ";
+		printCharacter(coordinate, ' ');
 
 		switch (currentKeyCode)
 		{
 		case keyCode::UP:
-			if (y > 0)
-				y--;
+			if (coordinate.y > 0)
+				coordinate.y--;
 			else
-				y = consoleHeight;
+				coordinate.y = consoleHeight;
 			break;
 		case keyCode::DOWN:
-			if (y < consoleHeight)
-				y++;
+			if (coordinate.y < consoleHeight)
+				coordinate.y++;
 			else
-				y = 0;
+				coordinate.y = 0;
 			break;
 		case keyCode::LEFT:
-			if (x > 0)
-				x--;
+			if (coordinate.x > 0)
+				coordinate.x--;
 			else
-				x = consoleWidth;
+				coordinate.x = consoleWidth;
 			break;
 		case keyCode::RIGHT:
-			if (x < consoleWidth)
-				x++;
+			if (coordinate.x < consoleWidth)
+				coordinate.x++;
 			else
-				x = 0;
+				coordinate.x = 0;
 			break;
 		default:
 			break;
@@ -165,7 +235,6 @@ int main()
 		if (currentKeyCode == keyCode::ESC)
 			break;
 	}
-
 
 	//setCursor(5, 7);
 	//std::cout << "Hello World!\n";

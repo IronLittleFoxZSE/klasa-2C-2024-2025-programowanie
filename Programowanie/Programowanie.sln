@@ -41,6 +41,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TasksConsoleApplication", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SnakeConsoleApplication", "SnakeConsoleApplication\SnakeConsoleApplication.vcxproj", "{B4E235D4-1BAB-4A2A-8C5F-C2955385D38D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StarrySkyConsoleApplication", "StarrySkyConsoleApplication\StarrySkyConsoleApplication.vcxproj", "{264A3453-F443-48E0-87E1-584EE5821E93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -153,6 +155,14 @@ Global
 		{B4E235D4-1BAB-4A2A-8C5F-C2955385D38D}.Release|x64.Build.0 = Release|x64
 		{B4E235D4-1BAB-4A2A-8C5F-C2955385D38D}.Release|x86.ActiveCfg = Release|Win32
 		{B4E235D4-1BAB-4A2A-8C5F-C2955385D38D}.Release|x86.Build.0 = Release|Win32
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Debug|x64.ActiveCfg = Debug|x64
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Debug|x64.Build.0 = Debug|x64
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Debug|x86.ActiveCfg = Debug|Win32
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Debug|x86.Build.0 = Debug|Win32
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Release|x64.ActiveCfg = Release|x64
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Release|x64.Build.0 = Release|x64
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Release|x86.ActiveCfg = Release|Win32
+		{264A3453-F443-48E0-87E1-584EE5821E93}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +181,7 @@ Global
 		{5BAD07DB-45CA-4D19-9F5F-60BD2BD0ABF7} = {6B846FC3-785E-4AC5-B55A-19FFF8382B6F}
 		{B4ACB721-EAC9-40AF-93FA-18D4E3476B10} = {149862AF-FD56-4EAC-BEB2-0E1F2CBC92B0}
 		{B4E235D4-1BAB-4A2A-8C5F-C2955385D38D} = {149862AF-FD56-4EAC-BEB2-0E1F2CBC92B0}
+		{264A3453-F443-48E0-87E1-584EE5821E93} = {149862AF-FD56-4EAC-BEB2-0E1F2CBC92B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CF49382-092A-4027-8546-0283784F7F1B}

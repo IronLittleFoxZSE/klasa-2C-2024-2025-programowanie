@@ -106,7 +106,7 @@ void task3()
 	std::cout << "Max to: " << max << "\n";
 
 	int min = numbers[0];
-	for (int i = 1; i < ARRAY_SIZE; i++)
+	for (int i = 0 + 1; i < ARRAY_SIZE; i++)
 	{
 		if (numbers[i] < min)
 			min = numbers[i];
