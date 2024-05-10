@@ -136,6 +136,39 @@ int getHitItemCollect(point coordinate, point itemsToCollect[], unsigned int cou
 	return -1;
 }
 
+void changeCoordinate(point& coordinate, keyCode currentKeyCode, int consoleWidth, int consoleHeight)
+{
+	switch (currentKeyCode)
+	{
+	case keyCode::UP:
+		if (coordinate.y > 0)
+			coordinate.y--;
+		else
+			coordinate.y = consoleHeight;
+		break;
+	case keyCode::DOWN:
+		if (coordinate.y < consoleHeight)
+			coordinate.y++;
+		else
+			coordinate.y = 0;
+		break;
+	case keyCode::LEFT:
+		if (coordinate.x > 0)
+			coordinate.x--;
+		else
+			coordinate.x = consoleWidth;
+		break;
+	case keyCode::RIGHT:
+		if (coordinate.x < consoleWidth)
+			coordinate.x++;
+		else
+			coordinate.x = 0;
+		break;
+	default:
+		break;
+	}
+}
+
 int main()
 {
 	/*unsigned char sign;
@@ -165,7 +198,10 @@ int main()
 
 
 	//typ nazwa;
-	point coordinate;
+	//point coordinate;
+	const unsigned int SNAKE_MAX_LENGTH = 10;
+	point snakeCoordinates[SNAKE_MAX_LENGTH];
+	unsigned int snakeLength = 1;
 	//coordinate.x = 0;
 	//coordinate.y = 0;
 
@@ -183,13 +219,13 @@ int main()
 	fillItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT, consoleWidth, consoleHeight);
 	printItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT);
 
-	setRandomCoordinate(coordinate, consoleWidth, consoleHeight);
+	setRandomCoordinate(snakeCoordinates[0], consoleWidth, consoleHeight);
 	while (true)
 	{
-		printCharacter(coordinate, 'X');
+		printCharacter(snakeCoordinates[0], 'X');
 
 		int hit;
-		if ((hit = getHitItemCollect(coordinate, itemsToCollect, ELEMENT_TO_COLLECT_COUNT)) >= 0)
+		if ((hit = getHitItemCollect(snakeCoordinates[0], itemsToCollect, ELEMENT_TO_COLLECT_COUNT)) >= 0)
 		{
 			setRandomCoordinate(itemsToCollect[hit], consoleWidth, consoleHeight);
 
@@ -200,37 +236,9 @@ int main()
 
 		Sleep(300);
 
-		printCharacter(coordinate, ' ');
+		printCharacter(snakeCoordinates[0], ' ');
 
-		switch (currentKeyCode)
-		{
-		case keyCode::UP:
-			if (coordinate.y > 0)
-				coordinate.y--;
-			else
-				coordinate.y = consoleHeight;
-			break;
-		case keyCode::DOWN:
-			if (coordinate.y < consoleHeight)
-				coordinate.y++;
-			else
-				coordinate.y = 0;
-			break;
-		case keyCode::LEFT:
-			if (coordinate.x > 0)
-				coordinate.x--;
-			else
-				coordinate.x = consoleWidth;
-			break;
-		case keyCode::RIGHT:
-			if (coordinate.x < consoleWidth)
-				coordinate.x++;
-			else
-				coordinate.x = 0;
-			break;
-		default:
-			break;
-		}
+		changeCoordinate(snakeCoordinates[0], currentKeyCode, consoleWidth, consoleHeight);
 
 		if (currentKeyCode == keyCode::ESC)
 			break;
