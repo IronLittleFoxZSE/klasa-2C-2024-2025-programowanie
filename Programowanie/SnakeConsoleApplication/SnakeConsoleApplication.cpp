@@ -201,7 +201,8 @@ int main()
 	//point coordinate;
 	const unsigned int SNAKE_MAX_LENGTH = 10;
 	point snakeCoordinates[SNAKE_MAX_LENGTH];
-	unsigned int snakeLength = 1;
+	unsigned int snakeHead = 0;
+	unsigned int snakeTail = 0;
 	//coordinate.x = 0;
 	//coordinate.y = 0;
 
@@ -219,26 +220,34 @@ int main()
 	fillItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT, consoleWidth, consoleHeight);
 	printItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT);
 
-	setRandomCoordinate(snakeCoordinates[0], consoleWidth, consoleHeight);
+	setRandomCoordinate(snakeCoordinates[snakeHead], consoleWidth, consoleHeight);
 	while (true)
 	{
-		printCharacter(snakeCoordinates[0], 'X');
+		printCharacter(snakeCoordinates[snakeHead], 'X');
 
 		int hit;
-		if ((hit = getHitItemCollect(snakeCoordinates[0], itemsToCollect, ELEMENT_TO_COLLECT_COUNT)) >= 0)
+		if ((hit = getHitItemCollect(snakeCoordinates[snakeHead], itemsToCollect, ELEMENT_TO_COLLECT_COUNT)) >= 0)
 		{
 			setRandomCoordinate(itemsToCollect[hit], consoleWidth, consoleHeight);
 
 			printCharacter(itemsToCollect[hit], '*');
 		}
 
-		currentKeyCode = getKeyCode(currentKeyCode);
+		currentKeyCode = getKeyCode(currentKeyCode);	
+
+		if (hit == -1 && snakeTail != snakeHead)
+		{
+			printCharacter(snakeCoordinates[snakeTail], ' ');
+			snakeTail = (snakeTail + 1) % SNAKE_MAX_LENGTH;
+		}
 
 		Sleep(300);
 
-		printCharacter(snakeCoordinates[0], ' ');
+		point tmpHead = snakeCoordinates[snakeHead];
+		snakeHead = (snakeHead + 1) % SNAKE_MAX_LENGTH;
+		snakeCoordinates[snakeHead] = tmpHead;
 
-		changeCoordinate(snakeCoordinates[0], currentKeyCode, consoleWidth, consoleHeight);
+		changeCoordinate(snakeCoordinates[snakeHead], currentKeyCode, consoleWidth, consoleHeight);
 
 		if (currentKeyCode == keyCode::ESC)
 			break;
