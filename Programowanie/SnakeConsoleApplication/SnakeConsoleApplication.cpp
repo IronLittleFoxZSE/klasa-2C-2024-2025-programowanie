@@ -17,6 +17,11 @@ struct point
 	unsigned short y;
 };
 
+struct boardCoordinates
+{
+	point leftTop, rightBottom;
+};
+
 void setCursor(int x, int y)
 {
 	COORD c;
@@ -169,6 +174,35 @@ void changeCoordinate(point& coordinate, keyCode currentKeyCode, int consoleWidt
 	}
 }
 
+void printBoard(boardCoordinates& board)
+{
+	/*
+	########################
+	#					   #
+	#					   #
+	#					   #
+	#					   #
+	########################
+	*/
+
+	setCursor(board.leftTop);
+	for (int i = board.leftTop.x; i <= board.rightBottom.x; i++)
+		std::cout << "#";
+
+	for (int row = board.leftTop.y + 1; row < board.rightBottom.y; row++)
+	{
+		setCursor(board.leftTop.x, row);
+		std::cout << "#";
+
+		setCursor(board.rightBottom.x, row);
+		std::cout << "#";
+	}
+
+	setCursor(board.leftTop.x, board.rightBottom.y);
+	for (int i = board.leftTop.x; i <= board.rightBottom.x; i++)
+		std::cout << "#";
+}
+
 int main()
 {
 	/*unsigned char sign;
@@ -212,10 +246,18 @@ int main()
 	const unsigned int ELEMENT_TO_COLLECT_COUNT = 20;
 	point itemsToCollect[ELEMENT_TO_COLLECT_COUNT];
 
+	boardCoordinates board;
+
 	getConsolResolution(consoleWidth, consoleHeight);
+	board.leftTop.x = 10;
+	board.leftTop.y = 2;
+	board.rightBottom.x = consoleWidth - 30;
+	board.rightBottom.y = consoleHeight - 10;
 
 	showConsoleCursor(false);
 	system("cls");
+
+	printBoard(board);
 
 	fillItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT, consoleWidth, consoleHeight);
 	printItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT);
