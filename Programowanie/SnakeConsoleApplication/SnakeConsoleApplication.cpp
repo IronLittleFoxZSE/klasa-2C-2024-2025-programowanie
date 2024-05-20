@@ -30,7 +30,7 @@ void setCursor(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
-void setCursor(point &p)
+void setCursor(point& p)
 {
 	/*COORD c;
 	c.X = p.x;
@@ -101,22 +101,22 @@ keyCode getKeyCode(keyCode prevKeyCode)
 	return currentKeyCode;
 }
 
-void setRandomCoordinate(point &p ,int maxX, int maxY)
+void setRandomCoordinate(point& p, boardCoordinates& board)
 {
-	p.x = rand() % maxX;
-	p.y = rand() % maxY;
+	p.x = rand() % (board.rightBottom.x - board.leftTop.x - 1) + board.leftTop.x + 1;
+	p.y = rand() % (board.rightBottom.y - board.leftTop.y - 1) + board.leftTop.y + 1;
 }
 
-void fillItemsToCollect(point itemsToCollect[], unsigned int count, int maxX, int maxY)
+void fillItemsToCollect(point itemsToCollect[], unsigned int count, boardCoordinates& board)
 {
 	srand(time(NULL));
 	for (int i = 0; i < count; i++)
 	{
-		setRandomCoordinate(itemsToCollect[i], maxX, maxY);
+		setRandomCoordinate(itemsToCollect[i], board);
 	}
 }
 
-void printCharacter(point &p, char sign)
+void printCharacter(point& p, char sign)
 {
 	setCursor(p);
 	std::cout << sign;
@@ -141,33 +141,33 @@ int getHitItemCollect(point coordinate, point itemsToCollect[], unsigned int cou
 	return -1;
 }
 
-void changeCoordinate(point& coordinate, keyCode currentKeyCode, int consoleWidth, int consoleHeight)
+void changeCoordinate(point& coordinate, keyCode currentKeyCode, boardCoordinates& board)
 {
 	switch (currentKeyCode)
 	{
 	case keyCode::UP:
-		if (coordinate.y > 0)
+		if (coordinate.y - 1 != board.leftTop.y)
 			coordinate.y--;
 		else
-			coordinate.y = consoleHeight;
+			coordinate.y = board.rightBottom.y - 1;
 		break;
 	case keyCode::DOWN:
-		if (coordinate.y < consoleHeight)
+		if (coordinate.y + 1 != board.rightBottom.y)
 			coordinate.y++;
 		else
-			coordinate.y = 0;
+			coordinate.y = board.leftTop.y + 1;
 		break;
 	case keyCode::LEFT:
-		if (coordinate.x > 0)
+		if (coordinate.x - 1 != board.leftTop.x)
 			coordinate.x--;
 		else
-			coordinate.x = consoleWidth;
+			coordinate.x = board.rightBottom.x - 1;
 		break;
 	case keyCode::RIGHT:
-		if (coordinate.x < consoleWidth)
+		if (coordinate.x +1 != board.rightBottom.x)
 			coordinate.x++;
 		else
-			coordinate.x = 0;
+			coordinate.x = board.leftTop.x + 1;
 		break;
 	default:
 		break;
@@ -237,16 +237,21 @@ int main()
 	point snakeCoordinates[SNAKE_MAX_LENGTH];
 	unsigned int snakeHead = 0;
 	unsigned int snakeTail = 0;
+	unsigned int currentSnakeLength = 1;
 	//coordinate.x = 0;
 	//coordinate.y = 0;
 
 	keyCode currentKeyCode = keyCode::RIGHT;
 	int consoleHeight, consoleWidth;
 
-	const unsigned int ELEMENT_TO_COLLECT_COUNT = 20;
+	const unsigned int ELEMENT_TO_COLLECT_COUNT = 200;
 	point itemsToCollect[ELEMENT_TO_COLLECT_COUNT];
 
 	boardCoordinates board;
+
+	unsigned int currentTimeSleep = 300;
+	const unsigned int TIME_SLEEP_STEP = 10;
+	const unsigned int MIN_TIME_SLEEP = 100;
 
 	getConsolResolution(consoleWidth, consoleHeight);
 	board.leftTop.x = 10;
@@ -259,10 +264,10 @@ int main()
 
 	printBoard(board);
 
-	fillItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT, consoleWidth, consoleHeight);
+	fillItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT, board);
 	printItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT);
 
-	setRandomCoordinate(snakeCoordinates[snakeHead], consoleWidth, consoleHeight);
+	setRandomCoordinate(snakeCoordinates[snakeHead], board);
 	while (true)
 	{
 		printCharacter(snakeCoordinates[snakeHead], 'X');
@@ -270,26 +275,33 @@ int main()
 		int hit;
 		if ((hit = getHitItemCollect(snakeCoordinates[snakeHead], itemsToCollect, ELEMENT_TO_COLLECT_COUNT)) >= 0)
 		{
-			setRandomCoordinate(itemsToCollect[hit], consoleWidth, consoleHeight);
+			setRandomCoordinate(itemsToCollect[hit], board);
 
 			printCharacter(itemsToCollect[hit], '*');
 		}
 
-		currentKeyCode = getKeyCode(currentKeyCode);	
+		currentKeyCode = getKeyCode(currentKeyCode);
 
-		if (hit == -1 && snakeTail != snakeHead)
+		if ((hit == -1 && currentSnakeLength != 1) || currentSnakeLength == SNAKE_MAX_LENGTH)
 		{
 			printCharacter(snakeCoordinates[snakeTail], ' ');
 			snakeTail = (snakeTail + 1) % SNAKE_MAX_LENGTH;
 		}
+		else
+			currentSnakeLength++;
 
-		Sleep(300);
+		if (hit != -1 
+			&& currentTimeSleep >= TIME_SLEEP_STEP
+			&& currentTimeSleep - TIME_SLEEP_STEP >= MIN_TIME_SLEEP)
+			currentTimeSleep -= TIME_SLEEP_STEP;
+
+		Sleep(currentTimeSleep);
 
 		point tmpHead = snakeCoordinates[snakeHead];
 		snakeHead = (snakeHead + 1) % SNAKE_MAX_LENGTH;
 		snakeCoordinates[snakeHead] = tmpHead;
 
-		changeCoordinate(snakeCoordinates[snakeHead], currentKeyCode, consoleWidth, consoleHeight);
+		changeCoordinate(snakeCoordinates[snakeHead], currentKeyCode, board);
 
 		if (currentKeyCode == keyCode::ESC)
 			break;
