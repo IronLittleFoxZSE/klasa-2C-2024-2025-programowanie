@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include <conio.h>
+#include <conio.h> 
+#include "Console.h"
+
 
 enum keyCode
 {
@@ -11,54 +13,27 @@ enum keyCode
 	ESC
 };
 
-struct point
+enum itemType
 {
-	unsigned short x;
-	unsigned short y;
+	COLLECT,
+	OBSTACLE
 };
+
+
 
 struct boardCoordinates
 {
 	point leftTop, rightBottom;
 };
 
-void setCursor(int x, int y)
+struct itemOnBoard
 {
-	COORD c;
-	c.X = x;
-	c.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-}
+	point coordinates;
+	char symbol;
+	itemType type;
+};
 
-void setCursor(point& p)
-{
-	/*COORD c;
-	c.X = p.x;
-	c.Y = p.y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);*/
 
-	setCursor(p.x, p.y);
-}
-
-void showConsoleCursor(bool showFlag)
-{
-	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
-
-	CONSOLE_CURSOR_INFO     cursorInfo;
-
-	GetConsoleCursorInfo(out, &cursorInfo);
-	cursorInfo.bVisible = showFlag; // set the cursor visibility
-	SetConsoleCursorInfo(out, &cursorInfo);
-}
-
-void getConsolResolution(int& consoleWidth, int& consoleHeight)
-{
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-
-	consoleWidth = csbi.srWindow.Right - csbi.srWindow.Left;
-	consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
-}
 
 keyCode codeChar(unsigned char charToCode)
 {
@@ -107,12 +82,14 @@ void setRandomCoordinate(point& p, boardCoordinates& board)
 	p.y = rand() % (board.rightBottom.y - board.leftTop.y - 1) + board.leftTop.y + 1;
 }
 
-void fillItemsToCollect(point itemsToCollect[], unsigned int count, boardCoordinates& board)
+void fillItemsNoBoard(itemOnBoard itemsOnBoard[], unsigned int count, boardCoordinates& board)
 {
 	srand(time(NULL));
 	for (int i = 0; i < count; i++)
 	{
-		setRandomCoordinate(itemsToCollect[i], board);
+		setRandomCoordinate(itemsOnBoard[i].coordinates, board);
+		itemsOnBoard[i].symbol = '*';
+		itemsOnBoard[i].type = itemType::COLLECT;
 	}
 }
 
@@ -122,20 +99,20 @@ void printCharacter(point& p, char sign)
 	std::cout << sign;
 }
 
-void printItemsToCollect(point itemsToCollect[], unsigned int count)
+void printItemsOnBoard(itemOnBoard itemsOnBoard[], unsigned int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		printCharacter(itemsToCollect[i], '*');
+		printCharacter(itemsOnBoard[i].coordinates, itemsOnBoard[i].symbol);
 	}
 }
 
-int getHitItemCollect(point coordinate, point itemsToCollect[], unsigned int count)
+int getHitItemOnBoard(point coordinate, itemOnBoard itemsOnBoard[], unsigned int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		if (itemsToCollect[i].x == coordinate.x
-			&& itemsToCollect[i].y == coordinate.y)
+		if (itemsOnBoard[i].coordinates.x == coordinate.x
+			&& itemsOnBoard[i].coordinates.y == coordinate.y)
 			return i;
 	}
 	return -1;
@@ -230,7 +207,6 @@ int main()
 
 	return 0;*/
 
-
 	//typ nazwa;
 	//point coordinate;
 	const unsigned int SNAKE_MAX_LENGTH = 10;
@@ -244,14 +220,16 @@ int main()
 	keyCode currentKeyCode = keyCode::RIGHT;
 	int consoleHeight, consoleWidth;
 
-	const unsigned int ELEMENT_TO_COLLECT_COUNT = 200;
-	point itemsToCollect[ELEMENT_TO_COLLECT_COUNT];
+	//const unsigned int ELEMENT_TO_COLLECT_COUNT = 200;
+	//point itemsToCollect[ELEMENT_TO_COLLECT_COUNT];
+	const unsigned int MAX_ELEMENT_ON_BOARD = 200;
+	itemOnBoard itemsOnBoard[MAX_ELEMENT_ON_BOARD];
 
 	boardCoordinates board;
 
-	unsigned int currentTimeSleep = 300;
+	unsigned int currentTimeSleep = 50;
 	const unsigned int TIME_SLEEP_STEP = 10;
-	const unsigned int MIN_TIME_SLEEP = 100;
+	const unsigned int MIN_TIME_SLEEP = 10;
 
 	getConsolResolution(consoleWidth, consoleHeight);
 	board.leftTop.x = 10;
@@ -264,33 +242,23 @@ int main()
 
 	printBoard(board);
 
-	fillItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT, board);
-	printItemsToCollect(itemsToCollect, ELEMENT_TO_COLLECT_COUNT);
+	fillItemsNoBoard(itemsOnBoard, MAX_ELEMENT_ON_BOARD, board);
+	printItemsOnBoard(itemsOnBoard, MAX_ELEMENT_ON_BOARD);
 
 	setRandomCoordinate(snakeCoordinates[snakeHead], board);
+	printCharacter(snakeCoordinates[snakeHead], 'X');
+
 	while (true)
 	{
-		printCharacter(snakeCoordinates[snakeHead], 'X');
-
 		int hit;
-		if ((hit = getHitItemCollect(snakeCoordinates[snakeHead], itemsToCollect, ELEMENT_TO_COLLECT_COUNT)) >= 0)
+		if ((hit = getHitItemOnBoard(snakeCoordinates[snakeHead], itemsOnBoard, MAX_ELEMENT_ON_BOARD)) >= 0)
 		{
-			setRandomCoordinate(itemsToCollect[hit], board);
+			setRandomCoordinate(itemsOnBoard[hit].coordinates, board);
 
-			printCharacter(itemsToCollect[hit], '*');
+			printCharacter(itemsOnBoard[hit].coordinates, itemsOnBoard[hit].symbol);
 		}
 
-		currentKeyCode = getKeyCode(currentKeyCode);
-
-		if ((hit == -1 && currentSnakeLength != 1) || currentSnakeLength == SNAKE_MAX_LENGTH)
-		{
-			printCharacter(snakeCoordinates[snakeTail], ' ');
-			snakeTail = (snakeTail + 1) % SNAKE_MAX_LENGTH;
-		}
-		else
-			currentSnakeLength++;
-
-		if (hit != -1 
+		if (hit != -1
 			&& currentTimeSleep >= TIME_SLEEP_STEP
 			&& currentTimeSleep - TIME_SLEEP_STEP >= MIN_TIME_SLEEP)
 			currentTimeSleep -= TIME_SLEEP_STEP;
@@ -301,7 +269,19 @@ int main()
 		snakeHead = (snakeHead + 1) % SNAKE_MAX_LENGTH;
 		snakeCoordinates[snakeHead] = tmpHead;
 
+		currentKeyCode = getKeyCode(currentKeyCode);
+
 		changeCoordinate(snakeCoordinates[snakeHead], currentKeyCode, board);
+
+		printCharacter(snakeCoordinates[snakeHead], 'X');
+
+		if (hit == -1 || currentSnakeLength == SNAKE_MAX_LENGTH - 1)
+		{
+			printCharacter(snakeCoordinates[snakeTail], ' ');
+			snakeTail = (snakeTail + 1) % SNAKE_MAX_LENGTH;
+		}
+		else
+			currentSnakeLength++;
 
 		if (currentKeyCode == keyCode::ESC)
 			break;

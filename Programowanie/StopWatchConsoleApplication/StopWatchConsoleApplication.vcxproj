@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b4e235d4-1bab-4a2a-8c5f-c2955385d38d}</ProjectGuid>
-    <RootNamespace>SnakeConsoleApplication</RootNamespace>
+    <ProjectGuid>{7d331a05-015e-4af9-9723-e944d305134c}</ProjectGuid>
+    <RootNamespace>StopWatchConsoleApplication</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Console.cpp" />
-    <ClCompile Include="SnakeConsoleApplication.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Console.h" />
+    <ClCompile Include="StopWatchConsoleApplication.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
