@@ -51,9 +51,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Strukturalne", "Strukturaln
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Obiektowe", "Obiektowe", "{4F970918-468C-45F3-90E1-C19350BD6CD3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Struktury", "1. Struktury", "{DAF8305F-D6A3-4A43-AAAF-12A9321E1CC5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Struktury", "01. Struktury", "{DAF8305F-D6A3-4A43-AAAF-12A9321E1CC5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirstStructConsoleApplication", "FirstStructConsoleApplication\FirstStructConsoleApplication.vcxproj", "{4282B02C-B280-4F31-82BC-E2BD9003CE4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Podstawy obiektów", "02. Podstawy obiektów", "{9E9780BC-3599-48E1-B724-3C27E99B0FB3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirstObjectConsoleApplication", "FirstObjectConsoleApplication\FirstObjectConsoleApplication.vcxproj", "{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,6 +203,14 @@ Global
 		{4282B02C-B280-4F31-82BC-E2BD9003CE4B}.Release|x64.Build.0 = Release|x64
 		{4282B02C-B280-4F31-82BC-E2BD9003CE4B}.Release|x86.ActiveCfg = Release|Win32
 		{4282B02C-B280-4F31-82BC-E2BD9003CE4B}.Release|x86.Build.0 = Release|Win32
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Debug|x64.ActiveCfg = Debug|x64
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Debug|x64.Build.0 = Debug|x64
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Debug|x86.ActiveCfg = Debug|Win32
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Debug|x86.Build.0 = Debug|Win32
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Release|x64.ActiveCfg = Release|x64
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Release|x64.Build.0 = Release|x64
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Release|x86.ActiveCfg = Release|Win32
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +240,8 @@ Global
 		{7D331A05-015E-4AF9-9723-E944D305134C} = {149862AF-FD56-4EAC-BEB2-0E1F2CBC92B0}
 		{DAF8305F-D6A3-4A43-AAAF-12A9321E1CC5} = {4F970918-468C-45F3-90E1-C19350BD6CD3}
 		{4282B02C-B280-4F31-82BC-E2BD9003CE4B} = {DAF8305F-D6A3-4A43-AAAF-12A9321E1CC5}
+		{9E9780BC-3599-48E1-B724-3C27E99B0FB3} = {4F970918-468C-45F3-90E1-C19350BD6CD3}
+		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79} = {9E9780BC-3599-48E1-B724-3C27E99B0FB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CF49382-092A-4027-8546-0283784F7F1B}
