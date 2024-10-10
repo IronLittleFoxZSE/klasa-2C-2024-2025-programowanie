@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b92758d1-88fc-4c4c-baff-0bb3fd522c79}</ProjectGuid>
-    <RootNamespace>FirstObjectConsoleApplication</RootNamespace>
+    <ProjectGuid>{39d9af57-6ec3-4f99-ba23-f70ff2df43a6}</ProjectGuid>
+    <RootNamespace>ReadAndWriteInFilesConsoleApplication</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BankAccount.cpp" />
-    <ClCompile Include="FirstObjectConsoleApplication.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="BankAccount.h" />
+    <ClCompile Include="ReadAndWriteInFilesConsoleApplication.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

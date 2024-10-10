@@ -1,46 +1,7 @@
 // FirstObjectConsoleApplication.cpp 
 
 #include <iostream>
-
-class BankAccount
-{
-public:
-	double balance;
-	std::string owner;
-	std::string currency;
-
-	void AccountInformation()
-	{
-		std::cout << "Informacja o koncie bankowym\n";
-		std::cout << "W³aœciciel: " << owner << "\n";
-		std::cout << "Saldo: " << balance << " " << currency << "\n";
-	}
-
-	void DepositToAccount(double amount)
-	{
-		if (amount >= 0)
-			balance = balance + amount;
-	}
-
-	bool WidthdrawalFromAccount(double amount)
-	{
-		if (amount >= 0
-			&& balance >= amount)
-		{
-			balance = balance - amount;
-			return true;
-		}
-
-		return false;
-	}
-};
-
-void transferBetweenAccounts(BankAccount& sourceAccount, BankAccount& targetAcccount, double amount)
-{
-	if (sourceAccount.WidthdrawalFromAccount(amount))
-		targetAcccount.DepositToAccount(amount);
-
-}
+#include "BankAccount.h"
 
 int main()
 {
@@ -67,7 +28,7 @@ int main()
 	firstAccount.AccountInformation();
 	secondAccount.AccountInformation();
 
-	transferBetweenAccounts(firstAccount, secondAccount, 8100);
+	firstAccount.TransferBetweenAccounts(secondAccount, 8100);
 
 	firstAccount.AccountInformation();
 	secondAccount.AccountInformation();
