@@ -16,6 +16,18 @@ int main()
     //text = text + ", World!";
     //text +=", World!";
     std::cout << "Nasz tekst na: " << text << "\n";
+    //"Hello, World!"
+    std::string subText = text.substr(7, 5);
+    std::cout << "Skopiowany podtekst: " << subText << "\n";
 
+    text = "Ala ma kota";
+    text.replace(0, 3, "Ola");
+    std::cout << "Nasz tekst na: " << text << "\n";
+
+    //text = text.substr(0, 3) + " nie" + text.substr(3, text.length() - 3);
+    text.insert(3, " nie");
+    std::cout << "Nasz tekst na: " << text << "\n";
+
+    
 
 }

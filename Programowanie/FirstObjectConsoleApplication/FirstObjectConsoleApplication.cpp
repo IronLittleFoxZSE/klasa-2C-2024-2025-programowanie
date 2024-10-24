@@ -21,7 +21,7 @@ int main()
 
 	secondAccount.AccountInformation();
 
-	firstAccount.DepositToAccount(100);
+	firstAccount.DepositToAccount(-100);
 	firstAccount.AccountInformation();
 
 	firstAccount.WidthdrawalFromAccount(200);
