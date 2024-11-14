@@ -63,6 +63,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadAndWriteInFilesConsoleA
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringConsoleApplication", "StringConsoleApplication\StringConsoleApplication.vcxproj", "{4B2ADE7B-4A0E-467D-9D0A-39828ADF1D5A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InheritanceConsoleApplication", "InheritanceConsoleApplication\InheritanceConsoleApplication.vcxproj", "{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -231,6 +233,14 @@ Global
 		{4B2ADE7B-4A0E-467D-9D0A-39828ADF1D5A}.Release|x64.Build.0 = Release|x64
 		{4B2ADE7B-4A0E-467D-9D0A-39828ADF1D5A}.Release|x86.ActiveCfg = Release|Win32
 		{4B2ADE7B-4A0E-467D-9D0A-39828ADF1D5A}.Release|x86.Build.0 = Release|Win32
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Debug|x64.ActiveCfg = Debug|x64
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Debug|x64.Build.0 = Debug|x64
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Debug|x86.ActiveCfg = Debug|Win32
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Debug|x86.Build.0 = Debug|Win32
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Release|x64.ActiveCfg = Release|x64
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Release|x64.Build.0 = Release|x64
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Release|x86.ActiveCfg = Release|Win32
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -264,6 +274,7 @@ Global
 		{B92758D1-88FC-4C4C-BAFF-0BB3FD522C79} = {9E9780BC-3599-48E1-B724-3C27E99B0FB3}
 		{39D9AF57-6EC3-4F99-BA23-F70FF2DF43A6} = {9E9780BC-3599-48E1-B724-3C27E99B0FB3}
 		{4B2ADE7B-4A0E-467D-9D0A-39828ADF1D5A} = {9E9780BC-3599-48E1-B724-3C27E99B0FB3}
+		{44341CB5-5F81-47D9-80C8-E4FDE35E9CAD} = {9E9780BC-3599-48E1-B724-3C27E99B0FB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CF49382-092A-4027-8546-0283784F7F1B}

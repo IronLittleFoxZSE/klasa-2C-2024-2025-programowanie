@@ -2,7 +2,7 @@
 
 class BankAccount
 {
-private:
+protected:
 	double balance;
 	std::string owner;
 	std::string currency;

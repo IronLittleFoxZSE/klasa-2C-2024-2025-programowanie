@@ -5,19 +5,21 @@
 
 int main()
 {
-	BankAccount firstAccount;
-	firstAccount.balance = 7200;
-	firstAccount.owner = "Jan Kowalski";
-	firstAccount.currency = "z³";
+	BankAccount firstAccount(7200, "Jan Kowalski", "z³");
+	//firstAccount.balance = 7200;
+	//firstAccount.SetBalance(7200);
+	//firstAccount.owner = "Jan Kowalski";
+	//firstAccount.currency = "z³";
 
 	firstAccount.AccountInformation();
 
 	//accountInformation(firstAccount);
 
-	BankAccount secondAccount;
-	secondAccount.balance = 3200;
-	secondAccount.owner = "Ewa Nowak";
-	secondAccount.currency = "z³";
+	BankAccount secondAccount(3200, "Ewa Nowak", "z³");
+	//secondAccount.balance = 3200;
+	//secondAccount.SetBalance(3200);
+	//secondAccount.owner = "Ewa Nowak";
+	//secondAccount.currency = "z³";
 
 	secondAccount.AccountInformation();
 
