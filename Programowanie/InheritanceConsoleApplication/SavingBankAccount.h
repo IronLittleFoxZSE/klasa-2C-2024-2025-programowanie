@@ -22,4 +22,15 @@ public:
 	{
 		balance = balance + balance * interestRate;
 	}
+
+	void AccountInformation()
+	{
+		/*std::cout << "Informacja o koncie bankowym\n";
+		std::cout << "W³aœciciel: " << owner << "\n";
+		std::cout << "Saldo: " << balance << " " << currency << "\n";*/
+		BankAccount::AccountInformation();
+		std::cout << "Oprocentowanie " << interestRate << "\n";
+	}
 };
+
+
