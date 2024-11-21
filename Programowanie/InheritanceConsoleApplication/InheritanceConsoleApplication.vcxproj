@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="BankAccount.cpp" />
     <ClCompile Include="InheritanceConsoleApplication.cpp" />
+    <ClCompile Include="SavingBankAccount.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BankAccount.h" />

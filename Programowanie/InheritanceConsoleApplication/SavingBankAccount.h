@@ -7,30 +7,13 @@ protected:
 
 public:
 
-	SavingBankAccount()// : BankAccount() //to jest domyœlne
-	{
-		interestRate = 0.1;
-	}
-
-	SavingBankAccount(double b, std::string o, std::string c, double ir) : BankAccount(b, o, c)
-	{
-		interestRate = ir;
-	}
+	SavingBankAccount();
+	SavingBankAccount(double b, std::string o, std::string c, double ir);
 
 
-	void CalculateInterestRate()
-	{
-		balance = balance + balance * interestRate;
-	}
+	void CalculateInterestRate();
 
-	void AccountInformation()
-	{
-		/*std::cout << "Informacja o koncie bankowym\n";
-		std::cout << "W³aœciciel: " << owner << "\n";
-		std::cout << "Saldo: " << balance << " " << currency << "\n";*/
-		BankAccount::AccountInformation();
-		std::cout << "Oprocentowanie " << interestRate << "\n";
-	}
+	void AccountInformation();
 };
 
 
