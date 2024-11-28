@@ -8,9 +8,6 @@ private:
 protected:
 
 public:
-	Square(int a, std::string n = "Kwadrat") :Rectangle(a, a, n)
-	{
-
-	}
+	Square(int a, std::string n = "Kwadrat");
 };
 
