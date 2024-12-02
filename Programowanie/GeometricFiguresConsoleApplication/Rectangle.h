@@ -1,21 +1,19 @@
 #pragma once
 #include <iostream>
+#include "Quadrangle.h"
 
-class Rectangle
+class Rectangle: public Quadrangle
 {
 private:
 	
 protected:
-	double sideA, sideB;
-
-	std::string name;
+	
 
 public:
 	
 	Rectangle(double a, double b, std::string n = "Prostok¹t");
 
-	void ShowInformation();
-	double GetPerimeter();
+	//void ShowInformation();
 	double GetArea();
 };
 
