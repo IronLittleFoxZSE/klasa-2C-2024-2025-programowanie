@@ -18,7 +18,7 @@ void Quadrangle::ShowInformation()
 	std::cout << "Bok c = " << sideC << "\n";
 	std::cout << "Bok d = " << sideD << "\n";
 	std::cout << "Obwód = " << GetPerimeter() << "\n";
-	std::cout << "Pole = " << GetArea() << "\n";
+	//std::cout << "Pole = " << GetArea() << "\n";
 
 }
 
@@ -27,7 +27,9 @@ double Quadrangle::GetPerimeter()
 	return sideA + sideB + sideC + sideD;
 }
 
+/*
 double Quadrangle::GetArea()
 {
 	return -1;
 }
+*/

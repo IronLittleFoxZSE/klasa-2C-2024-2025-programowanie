@@ -1,6 +1,6 @@
 #include "Square.h"
 
-Square::Square(int a, std::string n = "Kwadrat") :Rectangle(a, a, n)
+Square::Square(int a, std::string n) :Rectangle(a, a, n)
 {
 
 }

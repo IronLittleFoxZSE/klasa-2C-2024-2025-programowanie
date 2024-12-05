@@ -13,7 +13,7 @@ public:
 	
 	Rectangle(double a, double b, std::string n = "Prostok¹t");
 
-	//void ShowInformation();
+	void ShowInformation();
 	double GetArea();
 };
 
