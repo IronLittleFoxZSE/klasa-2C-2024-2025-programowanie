@@ -4,12 +4,13 @@ Rectangle::Rectangle(double a, double b, std::string n):Quadrangle(a, b, a, b, a
 {
 }
 
+/*
 void Rectangle::ShowInformation()
 {
 	Quadrangle::ShowInformation();
 	std::cout << "Pole = " << GetArea() << "\n";
 }
-
+*/
 
 double Rectangle::GetArea()
 {

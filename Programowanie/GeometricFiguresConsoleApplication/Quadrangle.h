@@ -14,6 +14,6 @@ public:
 
 	void ShowInformation();
 	double GetPerimeter();
-	//double GetArea();
+	virtual double GetArea();
 };
 

@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GeometricFiguresConsoleApplication.cpp" />
+    <ClCompile Include="Parallelogram.cpp" />
     <ClCompile Include="Quadrangle.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Trapeze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Parallelogram.h" />
     <ClInclude Include="Quadrangle.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Square.h" />

@@ -12,6 +12,7 @@ int main()
 {
     Rectangle rec(6, 4);
     rec.ShowInformation();
+    std::cout << "Pole2 = " << rec.GetArea() << "\n";
 
     Square sq(5, "Ala");
     sq.ShowInformation();
