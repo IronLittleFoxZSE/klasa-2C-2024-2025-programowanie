@@ -195,7 +195,6 @@ int main()
 		drawBoard(board, ROW_COUNT, COL_COUNT);
 
 		fieldNumber = getFieldNumberOnBoard(playersSymbol[currentPlayer]);
-
 		if (isNotCorrectMove(board, ROW_COUNT, COL_COUNT, fieldNumber))
 			continue;
 
